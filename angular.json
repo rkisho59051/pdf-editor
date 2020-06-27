@@ -25,12 +25,29 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { 
+                "glob": "**/*", 
+                "input": "node_modules/ngx-monaco-editor/assets/monaco",
+                "output": "/assets/monaco/" 
+              },
+              {
+                "glob": "**/*", 
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/assets/monaco/" 
+              }
+
+              
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +140,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pdf-processor"
+    }
+  },
+  "defaultProject": "pdf-processor",
+  "cli": {
+    "analytics": "e45285a0-a949-4e01-b368-8997649df6ad"
+  }
 }

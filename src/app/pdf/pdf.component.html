@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+      <h4>PDF Template</h4>
+    </div>
+    <div class="col-md-6">
+      <div style="height: 500px;">
+        <ngx-monaco-editor
+          #editor
+          style="height: 100%; width: 100%;"
+          [options]="editorOptions"
+          [formControl]="code"
+          (onInit)="onInit($event)"
+        ></ngx-monaco-editor>
+      </div>
+    </div>
+    <div
+      class="col-md-6 border bg-light d-flex align-items-center justify-content-center"
+    >
+      <ng-template #nopreview>
+        <span class="text-muted"
+          >A preview will be shown on content edit from the editor window.</span>
+      </ng-template>
+      <iframe
+        *ngIf="blob && blob !== null; else nopreview"
+        [src]="blob | safeHtml"
+        width="100%"
+        frameborder="0"
+        height="500px"
+      ></iframe>
+    </div>
+  </div>
+  
